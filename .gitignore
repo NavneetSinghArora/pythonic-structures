@@ -1,0 +1,19 @@
+# Exclude the virtual environment
+.venv
+
+# Exclude IDE files
+.idea
+.vscode
+
+# Exclude the python cache files
+__pycache__
+
+# Exclude the pytest cache files
+.pytest_cache
+
+# Exclude the pytest benchmark files
+.benchmarks
+benchmarks/results.json
+
+# Exclude the concurrent programming files (Temporary ignore)
+concurrent_proggramming/*
