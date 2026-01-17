@@ -26,7 +26,7 @@ Also using a timer decorator to measure the time taken by the algorithm.
 
 | Algorithm | Mean | Min | Max | Std Dev | Ops/s | Rounds |
 |-----------|------|-----|-----|---------|-------|--------|
-| Native Sort | 186.26 ns | 163.34 ns | 825.83 ns | 18.31 ns | 5.37M ops/s | 54,544 |
-| Bubble Sort | 9.08 µs | 8.62 µs | 49.71 µs | 1.06 µs | 110.15K ops/s | 8,857 |
+| Native Sort | 249.63 ns | 220.24 ns | 3.56 µs | 31.36 ns | 4.01M ops/s | 195,122 |
+| Bubble Sort | 16.37 µs | 15.38 µs | 799.38 µs | 8.39 µs | 61.08K ops/s | 9,150 |
 
 <!-- BENCHMARK_SORTING_END -->
