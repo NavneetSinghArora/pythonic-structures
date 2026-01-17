@@ -9,40 +9,9 @@
 
 
 import time
-from typing import Iterator, Tuple
+from typing import Iterator, Tuple, Optional
 from sorting.helpers import create_random_list
-from utils.decorators import timer
-
-# Visualising the insertion sort algorithm
-@timer
-def visualise_insertion_sort(unsorted_list: list[int], sleep_time: int = 1) -> Tuple[int, list[int]]:
-    """
-    Visualising the insertion sort algorithm
-    
-    Args:
-        unsorted_list (list[int]): The list of integers to be sorted
-        sleep_time (int, optional): The time to sleep between steps. Defaults to 1.
-    
-    Returns:
-        Tuple[int, list[int]]: The number of steps and the sorted array
-    """
-    print("Initial array:", unsorted_list)
-    
-    steps = 0
-    sorted_list = unsorted_list
-    
-    # Using the generator to visualise the sorting by yielding the sorted array at each step
-    for _sorted_list in execute_insertion_sort(unsorted_list):
-        steps += 1
-        sorted_list = _sorted_list
-
-        # Adding a delay to visualise the sorting after every iteration
-        time.sleep(sleep_time)
-        print(f"Step {steps}: {_sorted_list}")
-    
-    print(f"Sorting Complteted in {steps} steps")
-    print("Final Sorted List:", sorted_list)
-    return steps, sorted_list
+from utils.decorators import visualise_sort
 
 # Executing the insertion sort algorithm as a generator and yielding the sorted array at each step
 def execute_insertion_sort(unsorted_list: list[int]) -> Iterator[list[int]]:
@@ -74,5 +43,5 @@ if __name__ == "__main__":
     unsorted_list = create_random_list(5)
     
     # Visualising the insertion sort algorithm
-    visualise_insertion_sort(unsorted_list)
+    visualise_sort(execute_insertion_sort, unsorted_list)
     

@@ -11,38 +11,7 @@
 import time
 from typing import Iterator, Tuple
 from sorting.helpers import create_random_list
-from utils.decorators import timer
-
-# Visualising the bubble sort algorithm
-@timer
-def visualise_bubble_sort(unsorted_list: list[int], sleep_time: int = 1) -> Tuple[int, list[int]]:
-    """
-    Visualising the bubble sort algorithm
-    
-    Args:
-        unsorted_list (list[int]): The list of integers to be sorted
-        sleep_time (int, optional): The time to sleep between steps. Defaults to 1.
-    
-    Returns:
-        Tuple[int, list[int]]: The number of steps and the sorted array
-    """
-    print("Initial array:", unsorted_list)
-    
-    steps = 0
-    sorted_list = unsorted_list
-    
-    # Using the generator to visualise the sorting by yielding the sorted array at each step
-    for _sorted_list in execute_bubble_sort(unsorted_list):
-        steps += 1
-        sorted_list = _sorted_list
-
-        # Adding a delay to visualise the sorting after every iteration
-        time.sleep(sleep_time)
-        print(f"Step {steps}: {_sorted_list}")
-    
-    print(f"Sorting Complteted in {steps} steps")
-    print("Final Sorted List:", sorted_list)
-    return steps, sorted_list
+from utils.decorators import visualise_sort
 
 # Executing the bubble sort algorithm as a generator and yielding the sorted array at each step
 def execute_bubble_sort(unsorted_list: list[int]) -> Iterator[list[int]]:
@@ -64,8 +33,8 @@ def execute_bubble_sort(unsorted_list: list[int]) -> Iterator[list[int]]:
                 unsorted_list[j], unsorted_list[j + 1] = unsorted_list[j + 1], unsorted_list[j]
                 swapped = True
         
-        # Yielding the partially / fully sorted array at each step
-        yield unsorted_list   
+        # Yielding the partially / fully sorted array at each step. Using copy() to avoid modifying the original list and also maintain the correct state of the array at each step
+        yield unsorted_list.copy()
 
         # If no elements were swapped, the array is already sorted. Hence break the loop
         if not swapped:
@@ -76,5 +45,5 @@ if __name__ == "__main__":
     unsorted_list = create_random_list(5)
     
     # Visualising the bubble sort algorithm
-    visualise_bubble_sort(unsorted_list)
+    visualise_sort(execute_bubble_sort, unsorted_list)
     
