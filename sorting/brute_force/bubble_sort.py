@@ -9,44 +9,9 @@
 
 
 import time
-from typing import Any, Callable, Iterator, Tuple
-from functools import wraps
+from typing import Iterator, Tuple
 from sorting.helpers import create_random_list
-
-# Creating a decorator to measure the time taken by a function
-def timer(func) -> Callable:
-    """
-    Decorator to measure the time taken by a function
-
-    Args:
-        func (function): The function to be decorated
-    """
-    @wraps(func)
-    def wrapper(*args, **kwargs) -> Any:
-        """
-        Wrapper function to measure the time taken by a function
-
-        Args:
-            *args: The arguments to be passed to the function
-            **kwargs: The keyword arguments to be passed to the function
-        
-        Returns:
-            The result of the function
-        """
-        start_time = time.perf_counter()
-        
-        # Executing the function
-        result = func(*args, **kwargs)
-        
-        # Calculating the time taken
-        end_time = time.perf_counter()
-        print(f"Time taken: {end_time - start_time}")
-        
-        # Returning the result of the function
-        return result
-    
-    # Returning the wrapper function
-    return wrapper
+from utils.decorators import timer
 
 # Visualising the bubble sort algorithm
 @timer
@@ -107,7 +72,7 @@ def execute_bubble_sort(balance: list[int]) -> Iterator[list[int]]:
 
 if __name__ == "__main__":
     # Calling the helper function to create a random list
-    balance = create_random_list(16)
+    balance = create_random_list(5)
     
     # Visualising the bubble sort algorithm
     visualise_bubble_sort(balance)
