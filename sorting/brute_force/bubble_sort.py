@@ -8,10 +8,10 @@
 # -500 <= ar[i] <= 500
 
 
-import random
 import time
 from typing import Any, Callable, Iterator, Tuple
 from functools import wraps
+from sorting.helpers import create_random_list
 
 # Creating a decorator to measure the time taken by a function
 def timer(func) -> Callable:
@@ -106,6 +106,9 @@ def execute_bubble_sort(balance: list[int]) -> Iterator[list[int]]:
         yield balance   
 
 if __name__ == "__main__":
-    balance = [random.randint(-500, 500) for _ in range(16)]
+    # Calling the helper function to create a random list
+    balance = create_random_list(16)
+    
+    # Visualising the bubble sort algorithm
     visualise_bubble_sort(balance)
     
