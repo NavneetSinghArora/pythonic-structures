@@ -10,28 +10,63 @@
 
 import random
 import time
-from typing import Iterator, Tuple
+from typing import Any, Callable, Iterator, Tuple
 from functools import wraps
 
 # Creating a decorator to measure the time taken by a function
-def timer(func):
+def timer(func) -> Callable:
+    """
+    Decorator to measure the time taken by a function
+
+    Args:
+        func (function): The function to be decorated
+    """
     @wraps(func)
-    def wrapper(*args, **kwargs):
+    def wrapper(*args, **kwargs) -> Any:
+        """
+        Wrapper function to measure the time taken by a function
+
+        Args:
+            *args: The arguments to be passed to the function
+            **kwargs: The keyword arguments to be passed to the function
+        
+        Returns:
+            The result of the function
+        """
         start_time = time.perf_counter()
+        
+        # Executing the function
         result = func(*args, **kwargs)
+        
+        # Calculating the time taken
         end_time = time.perf_counter()
         print(f"Time taken: {end_time - start_time}")
+        
+        # Returning the result of the function
         return result
+    
+    # Returning the wrapper function
     return wrapper
 
 # Visualising the bubble sort algorithm
 @timer
 def visualise_bubble_sort(balance: list[int], sleep_time: int = 1) -> Tuple[int, list[int]]:
+    """
+    Visualising the bubble sort algorithm
+    
+    Args:
+        balance (list[int]): The list of integers to be sorted
+        sleep_time (int, optional): The time to sleep between steps. Defaults to 1.
+    
+    Returns:
+        Tuple[int, list[int]]: The number of steps and the sorted array
+    """
     print("Initial array:", balance)
     
     steps = 0
     sorted_balance = balance
     
+    # Using the generator to visualise the sorting by yielding the sorted array at each step
     for _balance in execute_bubble_sort(balance):
         steps += 1
         sorted_balance = _balance
@@ -45,6 +80,15 @@ def visualise_bubble_sort(balance: list[int], sleep_time: int = 1) -> Tuple[int,
 
 # Executing the bubble sort algorithm as a generator and yielding the sorted array at each step
 def execute_bubble_sort(balance: list[int]) -> Iterator[list[int]]:
+    """
+    Executing the bubble sort algorithm as a generator and yielding the sorted array at each step
+
+    Args:
+        balance (list[int]): The list of integers to be sorted
+    
+    Returns:
+        Iterator[list[int]]: The sorted array at each step
+    """
     # Executing the bubble sort algorithm
     for i in range(len(balance)):
         swapped = False 
@@ -54,6 +98,7 @@ def execute_bubble_sort(balance: list[int]) -> Iterator[list[int]]:
                 balance[j], balance[i] = balance[i], balance[j]
                 swapped = True
         
+        # If no elements were swapped, the array is already sorted. Hence break the loop
         if not swapped:
             break
 
