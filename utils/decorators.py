@@ -1,66 +1,71 @@
-"""
-This module contains decorators for various purposes
-"""
+"""This module contains decorators for various purposes."""
 
-from typing import Iterator
+from collections.abc import Iterator, Callable
 from functools import wraps
 import time
-from typing import Any, Callable
+from typing import ParamSpec, TypeVar
+
+# ParamSpec and TypeVar are generic types for runtime type checking
+P = ParamSpec("P")
+R = TypeVar("R")
+
 
 # Creating a decorator to measure the time taken by a function
-def timer(func) -> Callable:
-    """
-    Decorator to measure the time taken by a function
+def timer[**P, R](func: Callable[P, R]) -> Callable[P, R]:
+    """Decorator to measure the time taken by a function.
 
     Args:
-        func (function): The function to be decorated
+        func (function): The function to be decorated.
+
+    Returns:
+        function: The decorated function.
     """
+
     @wraps(func)
-    def wrapper(*args, **kwargs) -> Any:
-        """
-        Wrapper function to measure the time taken by a function
+    def wrapper(*args: P.args, **kwargs: P.kwargs) -> R:
+        """Wrapper function to measure the time taken by a function.
 
         Args:
-            *args: The arguments to be passed to the function
-            **kwargs: The keyword arguments to be passed to the function
-        
+            *args: The arguments to be passed to the function.
+            **kwargs: The keyword arguments to be passed to the function.
+
         Returns:
-            The result of the function
+            The result of the function.
         """
         start_time = time.perf_counter()
-        
+
         # Executing the function
         result = func(*args, **kwargs)
-        
+
         # Calculating the time taken
         end_time = time.perf_counter()
         print(f"Time taken: {end_time - start_time}")
-        
+
         # Returning the result of the function
         return result
-    
+
     # Returning the wrapper function
     return wrapper
 
 
 # Visualising the insertion sort algorithm
 @timer
-def visualise_sort(sorting_algorithm: Callable[[list[int]], Iterator[list[int]]], unsorted_list: list[int], sleep_time: Optional[int] = 1) -> Tuple[int, list[int]]:
-    """
-    Visualising the sorting algorithm
-    
+def visualise_sort(sorting_algorithm: Callable[[list[int]], Iterator[list[int]]], unsorted_list: list[int], sleep_time: int = 1) -> tuple[int, list[int]]:
+    """Visualising the sorting algorithm.
+
     Args:
-        sorting_algorithm (function): The function to be decorated
-        sleep_time (int, optional): The time to sleep between steps. Defaults to 1.
-    
+        sorting_algorithm (function): The function to be decorated.
+        unsorted_list (list[int]): The list of integers to be sorted.
+        sleep_time (int): The time to sleep between steps. Defaults to 1.
+
     Returns:
-        Tuple[int, list[int]]: The number of steps and the sorted array
+        tuple[int, list[int]]: The number of steps and the sorted array.
     """
     print("Initial array:", unsorted_list)
-    
+
     steps = 0
     sorted_list = unsorted_list
-    
+
     # Using the generator to visualise the sorting by yielding the sorted array at each step
     for _sorted_list in sorting_algorithm(unsorted_list):
         steps += 1
@@ -69,7 +74,7 @@ def visualise_sort(sorting_algorithm: Callable[[list[int]], Iterator[list[int]]]
         # Adding a delay to visualise the sorting after every iteration
         time.sleep(sleep_time)
         print(f"Step {steps}: {_sorted_list}")
-    
+
     print(f"Sorting Complteted in {steps} steps")
     print("Final Sorted List:", sorted_list)
-    return steps, sorted_list
+    return (steps, sorted_list)

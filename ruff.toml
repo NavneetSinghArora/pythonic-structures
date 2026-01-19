@@ -1,0 +1,56 @@
+# Set target python version
+target-version = "py314"
+
+# Set the maximum line length to 180 characters
+line-length = 180
+
+# Ignore the files / paths in .gitignore
+respect-gitignore = true
+
+# Set the indentation width to 4 spaces
+indent-width = 4
+
+[lint]
+# Enable pycodestyle (E) and Pyflakes (F) codes by default.
+# This will include the E501 error which is line length error (line-too-long).
+select = ["E", "F"]
+
+
+# Extending the rules
+extend-select = [
+    "UP",  # pyupgrade: shows code deprecation warnings and suggestions
+    "D",   # pydocstyle: shows docstring errors
+    "ANN", # flake8-annotations (Strict Typing)
+]
+
+# Ignore ANN002: Missing type annotation for `*args`
+# Ignore ANN003: Missing type annotation for `**kwargs`
+# Ignore D104: Missing docstring in public package (__init__.py)
+ignore = ["ANN002", "ANN003", "D104"]
+
+# Enabling google docstring convention
+[lint.pydocstyle]
+convention = "google"
+
+[format]
+# Prefer double quotes over single quotes.
+quote-style = "double"
+# Skip magic trailing comma.
+skip-magic-trailing-comma = true
+# Enable reformatting of code snippets in docstrings.
+docstring-code-format = true
+# Format all docstring code snippets with a line length of 60.
+docstring-code-line-length = 60
+
+# Sorting the imports
+[lint.isort]
+# Combine as imports
+combine-as-imports = true
+# Force wrap aliases
+force-wrap-aliases = true
+# Shorter imports appear first followed by longer imports
+length-sort = true
+
+[lint.flake8-annotations]
+allow-star-arg-any = true
+# ignore-fully-untyped = true
