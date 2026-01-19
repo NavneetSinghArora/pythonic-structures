@@ -24,3 +24,15 @@ tasks:
     cmds:
       - uv run pytest benchmarks --benchmark-json=benchmarks/results.json
     silent: true
+
+  format:
+    desc: Format the code using ruff
+    cmds:
+      - uv run ruff check --fix
+    silent: true
+
+  lint:
+    desc: Lint the code using ruff
+    cmds:
+      - uv run ruff check
+    silent: true

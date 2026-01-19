@@ -1,6 +1,7 @@
 """This is the implementation of bubble sort algorithm.
 
-Bubble sort is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order.
+Bubble sort is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps
+them if they are in the wrong order.
 The pass through the list is repeated until the list is sorted.
 Time complexity: O(n^2)
 Space complexity: O(1).
@@ -34,7 +35,8 @@ def execute_bubble_sort(unsorted_list: list[int]) -> Iterator[list[int]]:
                 (unsorted_list[j], unsorted_list[j + 1]) = (unsorted_list[j + 1], unsorted_list[j])
                 swapped = True
 
-        # Yielding the partially / fully sorted array at each step. Using copy() to avoid modifying the original list and also maintain the correct state of the array at each step
+        # Yielding the partially / fully sorted array at each step. Using copy() to avoid modifying the original list
+        # and also maintain the correct state of the array at each step
         yield unsorted_list.copy()
 
         # If no elements were swapped, the array is already sorted. Hence break the loop

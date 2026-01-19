@@ -1,7 +1,8 @@
 """This is the implementation of insertion sort algorithm.
 
 Insertion sort is a simple sorting algorithm that builds the final sorted array using a key element one at a time.
-This key element is compared with all the elements before it and shifts the elements to the right until the correct position is found.
+This key element is compared with all the elements before it and shifts the elements to the right until the correct
+position is found.
 The process is repeated for all the elements in the array.
 Time complexity: O(n^2)
 Space complexity: O(1)
