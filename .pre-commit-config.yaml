@@ -1,0 +1,15 @@
+repos:
+
+  # uv pre-commit hook to ensure that uv.lock is always up to date and matches pyproject.toml
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    # uv version.
+    rev: 0.9.26
+    hooks:
+      - id: uv-lock
+
+  # ruff pre-commit hook to ensure that the code is formatted and free of linting errors
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.14.13
+    hooks:
+      - id: ruff-check
+      - id: ruff-format
