@@ -2,7 +2,7 @@
 target-version = "py314"
 
 # Set the maximum line length to 180 characters
-line-length = 180
+line-length = 120
 
 # Ignore the files / paths in .gitignore
 respect-gitignore = true
@@ -11,9 +11,8 @@ respect-gitignore = true
 indent-width = 4
 
 [lint]
-# Enable pycodestyle (E) and Pyflakes (F) codes by default.
-# This will include the E501 error which is line length error (line-too-long).
-select = ["E", "F"]
+# Enable pycodestyle (E), Pyflakes (F), and Flake8-commas (COM812)
+select = ["E", "F", "COM812"]
 
 
 # Extending the rules
@@ -35,8 +34,8 @@ convention = "google"
 [format]
 # Prefer double quotes over single quotes.
 quote-style = "double"
-# Skip magic trailing comma.
-skip-magic-trailing-comma = true
+# Enable magic trailing comma for better multiline formatting.
+skip-magic-trailing-comma = false
 # Enable reformatting of code snippets in docstrings.
 docstring-code-format = true
 # Format all docstring code snippets with a line length of 60.

@@ -1,6 +1,6 @@
 """This module contains decorators for various purposes."""
 
-from collections.abc import Iterator, Callable
+from collections.abc import Callable, Iterator
 from functools import wraps
 import time
 from typing import ParamSpec, TypeVar
@@ -50,7 +50,11 @@ def timer[**P, R](func: Callable[P, R]) -> Callable[P, R]:
 
 # Visualising the insertion sort algorithm
 @timer
-def visualise_sort(sorting_algorithm: Callable[[list[int]], Iterator[list[int]]], unsorted_list: list[int], sleep_time: int = 1) -> tuple[int, list[int]]:
+def visualise_sort(
+    sorting_algorithm: Callable[[list[int]], Iterator[list[int]]],
+    unsorted_list: list[int],
+    sleep_time: int = 1,
+) -> tuple[int, list[int]]:
     """Visualising the sorting algorithm.
 
     Args:
