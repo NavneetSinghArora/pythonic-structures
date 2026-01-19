@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: '3'
+
+vars:
+  GREETING: Hello, world!
+
+tasks:
+
+  tests:
+    desc: Run all tests including the benchmarks
+    cmds:
+      - uv run pytest
+    silent: true
+
+  tests-only:
+    desc: Run all tests excluding the benchmarks
+    cmds:
+      - uv run pytest tests
+    silent: true
+
+  benchmarks:
+    desc: Run all benchmarks
+    cmds:
+      - uv run pytest benchmarks --benchmark-json=benchmarks/results.json
+    silent: true
