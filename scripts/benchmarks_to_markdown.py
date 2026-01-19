@@ -184,7 +184,8 @@ def update_main_readme(readme_path: Path, markdown_content: str) -> None:
     else:
         if "<!-- Benchmarks will be added here -->" in content:
             new_content = content.replace(
-                "<!-- Benchmarks will be added here -->", f"{start_marker}\n\n{markdown_content}\n{end_marker}",
+                "<!-- Benchmarks will be added here -->",
+                f"{start_marker}\n\n{markdown_content}\n{end_marker}",
             )
         else:
             new_content = content.rstrip() + f"\n\n{start_marker}\n\n{markdown_content}\n{end_marker}\n"

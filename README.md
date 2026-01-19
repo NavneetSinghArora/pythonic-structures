@@ -1,3 +1,61 @@
+# Pythonic Structures
+
+A repository dedicated to exploring and implementing efficient, "Pythonic" data structures and algorithms, with a focus on performance benchmarking and modern development practices.
+
+## 🚀 Getting Started
+
+This project uses `uv` for dependency management and `Task` for automation.
+
+### Prerequisites
+
+- [uv](https://github.com/astral-sh/uv) (Extremely fast Python package installer and resolver)
+- [Task](https://taskfile.dev/) (A task runner / simpler alternative to Make)
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/NavneetSinghArora/pythonic-structures.git
+   cd pythonic-structures
+   ```
+
+2. **Setup the environment:**
+   ```bash
+   uv sync
+   ```
+
+3. **Install pre-commit hooks:**
+   ```bash
+   uv run pre-commit install
+   ```
+
+## 🛠 Usage
+
+We use `Taskfile` to manage common development tasks. You can run `task --list` to see all available commands.
+
+### Development Tasks
+
+| Command | Description |
+|---------|-------------|
+| `task tests` | Run all tests (including benchmarks) |
+| `task tests-only` | Run unit tests only |
+| `task benchmarks` | Run performance benchmarks |
+| `task format` | Format and fix linting issues with Ruff |
+| `task lint` | Check for linting issues |
+
+### Manual Execution
+
+If you prefer using `uv` directly:
+- **Run tests:** `uv run pytest`
+- **Format code:** `uv run ruff format .`
+
+## 📂 Project Structure
+
+- `sorting/`: Implementations of various sorting algorithms.
+- `utils/`: Utility functions and decorators (e.g., performance timers).
+- `tests/`: Unit tests for ensuring correctness.
+- `benchmarks/`: Performance tests and result tracking.
+
 <!-- BENCHMARK_START -->
 
 ## 📊 Benchmark Results

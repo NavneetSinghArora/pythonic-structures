@@ -1,6 +1,7 @@
 """Tests for sorting benchmarks."""
 
 import pytest
+from pytest_benchmark.fixture import BenchmarkFixture
 from sorting.brute_force.bubble_sort import execute_bubble_sort
 from sorting.brute_force.insertion_sort import execute_insertion_sort
 from sorting.helpers import create_random_list
@@ -8,7 +9,7 @@ from utils.decorators import visualise_sort
 
 
 @pytest.mark.benchmark(group="sorting")
-def test_benchmark_bubble_sort(benchmark: pytest.Benchmark) -> None:
+def test_benchmark_bubble_sort(benchmark: BenchmarkFixture) -> None:
     """Test bubble sort benchmark.
 
     Args:
@@ -19,7 +20,7 @@ def test_benchmark_bubble_sort(benchmark: pytest.Benchmark) -> None:
 
 
 @pytest.mark.benchmark(group="sorting")
-def test_benchmark_insertion_sort(benchmark: pytest.Benchmark) -> None:
+def test_benchmark_insertion_sort(benchmark: BenchmarkFixture) -> None:
     """Test insertion sort benchmark.
 
     Args:
@@ -30,7 +31,7 @@ def test_benchmark_insertion_sort(benchmark: pytest.Benchmark) -> None:
 
 
 @pytest.mark.benchmark(group="sorting")
-def test_benchmark_native_sort(benchmark: pytest.Benchmark) -> None:
+def test_benchmark_native_sort(benchmark: BenchmarkFixture) -> None:
     """Test native sort benchmark.
 
     Args:

@@ -2,37 +2,40 @@
 
 version: '3'
 
-vars:
-  GREETING: Hello, world!
-
 tasks:
+  default:
+    desc: Run the full "Confidence Suite" before a push
+    cmds:
+      - task: format
+      - task: type-check
+      - task: tests
+    silent: false
+
+  format:
+    desc: Fix linting and format code with Ruff
+    cmds:
+      - uv run ruff check --fix
+      - uv run ruff format
+    silent: true
+
+  type-check:
+    desc: Deep semantic analysis using Pyre (The Senior Move)
+    cmds:
+      - echo "Running Pyre incremental check..."
+      - uv run pyrefly check --summarize-errors
+    silent: false
 
   tests:
-    desc: Run all tests including the benchmarks
+    desc: Run all tests (including benchmarks)
     cmds:
       - uv run pytest
     silent: true
 
-  tests-only:
-    desc: Run all tests excluding the benchmarks
+  check-all:
+    desc: Extreme strictness check (Ruff + Pyre + Lockfile)
     cmds:
-      - uv run pytest tests
-    silent: true
-
-  benchmarks:
-    desc: Run all benchmarks
-    cmds:
-      - uv run pytest benchmarks --benchmark-json=benchmarks/results.json
-    silent: true
-
-  format:
-    desc: Format the code using ruff
-    cmds:
-      - uv run ruff check --fix
-    silent: true
-
-  lint:
-    desc: Lint the code using ruff
-    cmds:
-      - uv run ruff check
-    silent: true
+      - uv lock --check
+      - task: format
+      - task: type-check
+      - task: tests
+    silent: false

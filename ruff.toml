@@ -11,8 +11,8 @@ respect-gitignore = true
 indent-width = 4
 
 [lint]
-# Enable pycodestyle (E), Pyflakes (F), and Flake8-commas (COM812)
-select = ["E", "F", "COM812"]
+# Enable pycodestyle (E) and Pyflakes (F)
+select = ["E", "F"]
 
 
 # Extending the rules

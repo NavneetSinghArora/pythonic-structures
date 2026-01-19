@@ -1,0 +1,60 @@
+2026-01-19 22:10:28,051 [PID 75680] INFO No binary specified, looking for `pyre.bin` in PATH
+2026-01-19 22:10:28,051 [PID 75680] INFO Pyre binary is located at `/Users/navneet/Workspace/study/pythonic-structures/.venv/bin/pyre.bin`
+2026-01-19 22:10:28,051 [PID 75680] INFO Could not determine the number of Pyre workers from configuration. Auto-set the value to 4.
+2026-01-19 22:10:28,051 [PID 75680] INFO No typeshed specified, looking for it...
+2026-01-19 22:10:28,051 [PID 75680] INFO Found: `/Users/navneet/Workspace/study/pythonic-structures/.venv/lib/pyre_check/typeshed`
+2026-01-19 22:10:28,052 [PID 75680] INFO Writing arguments into /var/folders/p5/k3c2sw9s3l300s_n0mdh6nqr0000gn/T/pyre_arguments_0nowh2zf.json...
+2026-01-19 22:10:28,052 [PID 75680] DEBUG Arguments:
+{
+  "source_paths": {
+    "kind": "simple",
+    "paths": [
+      "/Users/navneet/Workspace/study/pythonic-structures"
+    ]
+  },
+  "search_paths": [
+    "/Users/navneet/Workspace/study/pythonic-structures/.venv/lib/pyre_check/typeshed/stdlib",
+    "/Users/navneet/Workspace/study/pythonic-structures/.venv/lib/pyre_check/typeshed/stubs/ExifRead",
+    "/Users/navneet/Workspace/study/pythonic-structures/.venv/lib/pyre_check/typeshed/stubs/PyMySQL",
+    "/Users/navneet/Workspace/study/pythonic-structures/.venv/lib/pyre_check/typeshed/stubs/PyYAML",
+    "/Users/navneet/Workspace/study/pythonic-structures/.venv/lib/pyre_check/typeshed/stubs/aiofiles",
+    "/Users/navneet/Workspace/study/pythonic-structures/.venv/lib/pyre_check/typeshed/stubs/chevron",
+    "/Users/navneet/Workspace/study/pythonic-structures/.venv/lib/pyre_check/typeshed/stubs/colorama",
+    "/Users/navneet/Workspace/study/pythonic-structures/.venv/lib/pyre_check/typeshed/stubs/ldap3",
+    "/Users/navneet/Workspace/study/pythonic-structures/.venv/lib/pyre_check/typeshed/stubs/mysqlclient",
+    "/Users/navneet/Workspace/study/pythonic-structures/.venv/lib/pyre_check/typeshed/stubs/paramiko",
+    "/Users/navneet/Workspace/study/pythonic-structures/.venv/lib/pyre_check/typeshed/stubs/psycopg2",
+    "/Users/navneet/Workspace/study/pythonic-structures/.venv/lib/pyre_check/typeshed/stubs/pycurl",
+    "/Users/navneet/Workspace/study/pythonic-structures/.venv/lib/pyre_check/typeshed/stubs/python-dateutil",
+    "/Users/navneet/Workspace/study/pythonic-structures/.venv/lib/pyre_check/typeshed/stubs/pytz",
+    "/Users/navneet/Workspace/study/pythonic-structures/.venv/lib/pyre_check/typeshed/stubs/regex",
+    "/Users/navneet/Workspace/study/pythonic-structures/.venv/lib/pyre_check/typeshed/stubs/requests",
+    "/Users/navneet/Workspace/study/pythonic-structures/.venv/lib/pyre_check/typeshed/stubs/retry",
+    "/Users/navneet/Workspace/study/pythonic-structures/.venv/lib/pyre_check/typeshed/stubs/tqdm",
+    "/Users/navneet/Workspace/study/pythonic-structures/.venv/lib/pyre_check/typeshed/stubs/ujson"
+  ],
+  "excludes": [
+    ".*/.venv/.*"
+  ],
+  "checked_directory_allowlist": [
+    "/Users/navneet/Workspace/study/pythonic-structures"
+  ],
+  "checked_directory_blocklist": [],
+  "extensions": [],
+  "log_path": "/Users/navneet/Workspace/study/pythonic-structures/.pyre",
+  "global_root": "/Users/navneet/Workspace/study/pythonic-structures",
+  "debug": false,
+  "python_version": {
+    "major": 3,
+    "minor": 14,
+    "micro": 2
+  },
+  "system_platform": "darwin",
+  "shared_memory": {},
+  "parallel": true,
+  "number_of_workers": 4,
+  "additional_logging_sections": [],
+  "show_error_traces": false,
+  "strict": false
+}
+2026-01-19 22:10:28,055 [PID 75680] ERROR [Errno 86] Bad CPU type in executable: '/Users/navneet/Workspace/study/pythonic-structures/.venv/bin/pyre.bin'
